@@ -13,7 +13,7 @@ ENV LC_ALL=en_US.UTF-8
 ENV LC_CTYPE=en_US.UTF-8
 ENV LANGUAGE=en_US.UTF-8
 
-RUN buildDeps='make build-essential g++ gcc python python3' && softDeps="tmux git" \
+RUN buildDeps='make build-essential g++ gcc python' && softDeps="tmux git" \
  && apt-get update && apt-get upgrade -y \
  && apt-get install -y $buildDeps $softDeps --no-install-recommends \
  && npm install -g forever && npm cache clean --force \
@@ -34,7 +34,7 @@ RUN git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh \
 
 RUN apt-get update \
     && apt-get install -y dnsutils apt-transport-https inetutils-ping \
-    && rm -rf /var/lib/apt/lists/*
+    build-essential g++ gcc python python-pip python3 python3-pip
 
 VOLUME /workspace
 EXPOSE 8181 
