@@ -38,6 +38,6 @@ RUN apt-get update \
 
 VOLUME /workspace
 EXPOSE 8181 
-ENTRYPOINT ["forever", "/cloud9/server.js", "--listen", "0.0.0.0"]
+ENTRYPOINT ["forever", "/cloud9/server.js", "-w", "/drive", "--listen", "0.0.0.0"]
 
 CMD ["--auth","c9:c9"]
